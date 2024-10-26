@@ -2,6 +2,7 @@ import requests
 import openpyxl
 import time
 import re
+from background import keep_alive
 from aiogram import Bot, Dispatcher
 from aiogram.types import FSInputFile
 from aiogram.filters import Command
@@ -141,8 +142,12 @@ async def parse_wb(message: Message):
 
 # Запуск бота
 async def main():
-    print('Запуск бота')
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        print('Запуск Бота')
+        keep_alive()
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print('Завершение Бота')
