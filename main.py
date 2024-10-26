@@ -11,7 +11,7 @@ import asyncio
 import os
 
 # Ваш токен бота
-API_TOKEN = '7649694032:AAHSDoWdBYELvODDIGLur_uFqKjrrE-8cr4'
+API_TOKEN = os.environ.get('TOKEN')
 
 # Инициализация бота и диспетчера
 bot = Bot(token=API_TOKEN)
